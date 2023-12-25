@@ -25,6 +25,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var import_express = __toESM(require("express"));
 var import_compression = __toESM(require("compression"));
 var import_helmet = __toESM(require("helmet"));
+var import_express_http_proxy = __toESM(require("express-http-proxy"));
 
 // src/chatgpt/index.ts
 var dotenv = __toESM(require("dotenv"));
@@ -267,4 +268,6 @@ router.post("/verify", async (req, res) => {
 });
 app.use("", router);
 app.use("/api", router);
+app.use("/open", (0, import_express_http_proxy.default)(process.env.BASE_GAI_API_URL));
 app.listen(6660, () => globalThis.console.log("Server is running on port 6660"));
+//# sourceMappingURL=index.js.map
