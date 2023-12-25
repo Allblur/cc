@@ -268,6 +268,8 @@ router.post("/verify", async (req, res) => {
 });
 app.use("", router);
 app.use("/api", router);
-app.use("/open", (0, import_express_http_proxy.default)(process.env.BASE_GAI_API_URL));
+app.use("/open", (0, import_express_http_proxy.default)(process.env.BASE_GAI_API_URL, {
+  limit: "20mb"
+}));
 app.listen(6660, () => globalThis.console.log("Server is running on port 6660"));
 //# sourceMappingURL=index.js.map
